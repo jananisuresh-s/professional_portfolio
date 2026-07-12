@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brain Tumor Detection — Janani S</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grain"></div>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-mark">J.</a>
+  <a href="index.html#projects" class="nav-cta">← All projects</a>
+</nav>
+
+<header class="detail-hero">
+  <a href="index.html#projects" class="detail-back">← Back to projects</a>
+  <h1>Brain Tumor Detection in MRI Scans</h1>
+  <p class="role">Computer Vision &nbsp;/&nbsp; Python</p>
+  <p class="hero-desc">An end-to-end, rule-based pipeline that processes MRI scans and flags likely tumor regions — built independently to go deep on image processing rather than call a pretrained model and stop there.</p>
+  <div class="detail-links">
+    <a href="https://brain-tumor-detection-s21w.onrender.com" class="btn btn-primary" target="_blank" rel="noopener">View site</a>
+    <a href="https://github.com/jananisuresh-s/brain_tumor_detection" class="btn btn-ghost" target="_blank" rel="noopener">View on GitHub</a>
+  </div>
+</header>
+
+<main class="detail-body">
+
+  <h2>Why I built this</h2>
+  <p>I wanted a project that forced me to understand image processing at the pixel level rather than treating computer vision as a black box. MRI tumor detection is a well-scoped, high-stakes-feeling problem: the input is messy real-world imaging data, and every stage of the pipeline (cleaning, isolating, segmenting, classifying) has a clear, explainable purpose. It's also a project I can defend line by line in an interview, because I built each stage myself rather than fine-tuning an existing model.</p>
+
+  <h2>What it does</h2>
+  <p>The pipeline takes a raw MRI scan and runs it through six stages to isolate and flag tumor regions:</p>
+  <ul>
+    <li><strong>Preprocessing</strong> — noise reduction and contrast normalization on the raw MRI image</li>
+    <li><strong>Skull stripping</strong> — removing non-brain tissue so downstream stages only analyze relevant regions</li>
+    <li><strong>Segmentation</strong> — isolating candidate regions of interest within the brain tissue</li>
+    <li><strong>Feature extraction</strong> — pulling shape, intensity, and texture features from each candidate region</li>
+    <li><strong>Rule-based classification</strong> — applying threshold and heuristic rules to flag regions as tumor or non-tumor</li>
+    <li><strong>Result output</strong> — rendering the flagged regions back onto the scan through the Flask interface</li>
+  </ul>
+
+  <h2>Technologies used</h2>
+  <table class="component-table">
+    <tr><th>Component</th><th>Purpose</th></tr>
+    <tr><td>Python</td><td>Core pipeline logic and orchestration</td></tr>
+    <tr><td>OpenCV</td><td>Image preprocessing, filtering, and segmentation</td></tr>
+    <tr><td>Flask</td><td>Web interface for uploading scans and viewing results</td></tr>
+    <tr><td>Rule-based classification</td><td>Threshold and heuristic logic — no trained ML classifier</td></tr>
+    <tr><td>Docker</td><td>Containerized the app for deployment on Render</td></tr>
+  </table>
+
+  <h2>Why rule-based, not deep learning</h2>
+  <p>I chose a rule-based classification approach deliberately over a trained neural network. It meant I had to understand and hand-tune every decision boundary myself instead of relying on a model to learn one — which made the project slower to build but far easier to explain honestly. I can walk through exactly why a region gets flagged, which matters more to me right now than a marginally higher accuracy number I couldn't fully account for.</p>
+
+  <h2>Future scope</h2>
+  <ul>
+    <li>Replace rule-based classification with a trained CNN classifier, benchmarked against the current rule-based baseline</li>
+    <li>Expand preprocessing to handle multiple MRI modalities (T1, T2, FLAIR) rather than a single scan type</li>
+    <li>Add a confidence score alongside each flagged region instead of a binary tumor/non-tumor output</li>
+    <li>Package the pipeline as a reusable Python library rather than a single Flask app</li>
+  </ul>
+
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

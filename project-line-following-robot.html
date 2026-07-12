@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Line-Following Robot — Janani S</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grain"></div>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-mark">J.</a>
+  <a href="index.html#projects" class="nav-cta">← All projects</a>
+</nav>
+
+<header class="detail-hero">
+  <a href="index.html#projects" class="detail-back">← Back to projects</a>
+  <h1>Line-Following Robot</h1>
+  <p class="role">Autonomous Robotics &nbsp;/&nbsp; Embedded Systems</p>
+  <p class="hero-desc">An autonomous robot that detects and follows a predefined path using infrared sensors, correcting its trajectory in real time through differential motor control.</p>
+  <div class="detail-links">
+    <a href="index.html#contact" class="btn btn-primary">Contact me</a>
+  </div>
+</header>
+
+<main class="detail-body">
+
+  <h2>Why I built this</h2>
+  <p>This was early hands-on work in closed-loop control — a robot that has to sense its environment continuously and correct its own behavior in real time, with no manual input once it starts moving. Line-following is a classic embedded systems project, but it's a genuinely useful foundation: the same sense-decide-actuate loop shows up in industrial automation, warehouse logistics, and automated guided vehicles.</p>
+
+  <h2>How it works</h2>
+  <p>An IR sensor array continuously reads the surface beneath the robot. Dark and light surfaces reflect infrared light differently, so each sensor returns a distinct signal depending on whether it's over the line or the background. The Arduino reads this array and determines the robot's position relative to the line, then adjusts the left and right motor speeds independently — differential steering — to steer back toward center whenever it starts to drift.</p>
+
+  <h2>Technologies used</h2>
+  <table class="component-table">
+    <tr><th>Component</th><th>Purpose</th></tr>
+    <tr><td>Arduino Uno</td><td>Reads sensor input and executes control logic in real time</td></tr>
+    <tr><td>IR sensor module</td><td>Detects line position via surface reflectivity</td></tr>
+    <tr><td>L298N motor driver</td><td>Drives the two DC gear motors independently for differential steering</td></tr>
+    <tr><td>DC gear motors (x2)</td><td>Provide independent left/right drive for turning and correction</td></tr>
+    <tr><td>C/C++ (Arduino IDE)</td><td>Control logic and sensor-to-motor mapping</td></tr>
+  </table>
+
+  <h2>My contributions</h2>
+  <ul>
+    <li>Designed the complete hardware circuit connecting sensors, driver, and motors</li>
+    <li>Interfaced the IR sensor array with the Arduino and read raw sensor states</li>
+    <li>Wrote the control logic mapping sensor readings to differential motor speeds</li>
+    <li>Integrated the L298N motor driver with the DC motors</li>
+    <li>Tested and tuned sensor threshold values for reliable line detection</li>
+  </ul>
+
+  <h2>Challenges</h2>
+  <ul>
+    <li>Sensor readings shifted under different ambient lighting, requiring threshold recalibration</li>
+    <li>Getting turning response tight enough to avoid overshooting on sharper curves</li>
+    <li>Reducing electrical noise from the motors affecting sensor readings</li>
+  </ul>
+
+  <h2>Future scope</h2>
+  <ul>
+    <li>Replace the current threshold-based correction with a PID control loop for smoother path tracking</li>
+    <li>Add support for intersections and branching paths, not just a single continuous line</li>
+    <li>Move from a fixed-speed correction to a speed profile that slows into sharp turns</li>
+  </ul>
+
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

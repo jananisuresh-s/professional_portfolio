@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Rooftop System — Janani S</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grain"></div>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-mark">J.</a>
+  <a href="index.html#projects" class="nav-cta">← All projects</a>
+</nav>
+
+<header class="detail-hero">
+  <a href="index.html#projects" class="detail-back">← Back to projects</a>
+  <h1>Smart Rooftop System</h1>
+  <p class="role">Embedded Systems &nbsp;/&nbsp; IoT &nbsp;/&nbsp; B.E. Final-Year Project</p>
+  <p class="hero-desc">An ESP32-based automated rooftop that senses rain and temperature and closes itself accordingly, with Bluetooth-based manual and voice override. Built as a 4-member team project for our B.E. degree, submitted April 2026.</p>
+  <div class="detail-links">
+    <a href="index.html#contact" class="btn btn-primary">Contact me</a>
+  </div>
+</header>
+
+<main class="detail-body">
+
+  <h2>Why we built this</h2>
+  <p>Rooftops used for drying clothes, ventilation, or utility storage are fully exposed to the weather, and conventional setups depend entirely on someone noticing it's raining and going to close things manually. That delay causes real damage — soaked clothes, water ingress, heat buildup — and it's avoidable with fairly simple embedded sensing. We wanted to build a low-cost prototype that removes that manual dependency while still giving the user full override control when they want it.</p>
+
+  <h2>How it works</h2>
+  <p>The ESP32 microcontroller acts as the central control unit, continuously reading two sensors: a rain sensor and a DHT11 temperature/humidity sensor. When rain is detected, or temperature exceeds a 35°C threshold, the ESP32 signals a motor driver to close the rooftop via a DC motor. A limit switch detects the fully closed position and stops the motor, preventing mechanical overrun. Under normal conditions, the system reopens the rooftop automatically using timed motor control.</p>
+  <p>Alongside automatic operation, the system supports manual and voice control through the Arduino Bluetooth Control mobile app — a user can send commands like "Open 50%" or "Close fully" and the ESP32 interprets and executes them, overriding automatic behavior when needed. A 16×2 I²C LCD displays live temperature, humidity, rain status, and rooftop position.</p>
+
+  <h2>System architecture</h2>
+  <ul>
+    <li><strong>Sensing layer</strong> — rain sensor + DHT11 temperature/humidity sensor</li>
+    <li><strong>Control layer</strong> — ESP32 compares sensor data against threshold conditions</li>
+    <li><strong>Actuation layer</strong> — motor driver + DC motor, with limit switch for safe stopping</li>
+    <li><strong>Communication layer</strong> — Bluetooth (built into ESP32) for manual and voice commands</li>
+    <li><strong>Power layer</strong> — small solar panel + battery, demonstrating renewable power integration at prototype scale</li>
+  </ul>
+
+  <h2>Components used</h2>
+  <table class="component-table">
+    <tr><th>Component</th><th>Role</th></tr>
+    <tr><td>ESP32 Dev Kit</td><td>Central microcontroller — sensor processing, control logic, Bluetooth</td></tr>
+    <tr><td>Rain sensor module (LM393 comparator)</td><td>Detects rainfall via conductivity change on sensing plate</td></tr>
+    <tr><td>DHT11 sensor</td><td>Measures ambient temperature and humidity</td></tr>
+    <tr><td>DC gear motor</td><td>Drives the rooftop open/close mechanism</td></tr>
+    <tr><td>Motor driver (H-bridge)</td><td>Provides bidirectional current control for the motor from ESP32 logic signals</td></tr>
+    <tr><td>Limit switch</td><td>Detects fully-closed position, stops motor to prevent overrun</td></tr>
+    <tr><td>Solar panel + rechargeable battery</td><td>Renewable power source for the prototype (demonstration scale)</td></tr>
+    <tr><td>16×2 I²C LCD</td><td>Displays live temperature, humidity, rain status, rooftop position</td></tr>
+  </table>
+
+  <h2>My role</h2>
+  <p>This was a 4-member team project (Birundha S, Dharini B, Krishnapriya P, and myself) supervised by our ECE department. <em>[Add your specific contribution here — e.g. which subsystem you owned: sensor integration, motor control logic, Bluetooth communication, or the report/documentation. I've left this open rather than guessing, since interviewers will ask exactly this.]</em></p>
+
+  <h2>Results</h2>
+  <p>The prototype was tested under simulated rain, varying temperature, and manual Bluetooth commands. Rain detection triggered rooftop closure within roughly 1–2 seconds; the system correctly reopened under normal conditions and correctly deferred to manual override when a Bluetooth command was received. Combined automatic-and-manual testing showed no conflicts between the two control modes.</p>
+
+  <h2>Limitations</h2>
+  <ul>
+    <li>DHT11 has moderate accuracy compared to industrial-grade sensors</li>
+    <li>Rain sensor can false-trigger on dust or ambient moisture without careful calibration</li>
+    <li>Prototype-scale motor and solar panel — not sized for a full residential rooftop</li>
+    <li>No cloud/IoT connectivity yet — control is local via Bluetooth only</li>
+  </ul>
+
+  <h2>Future scope</h2>
+  <ul>
+    <li>Replace DHT11 with a higher-accuracy environmental sensor for production use</li>
+    <li>Add IoT cloud connectivity for remote monitoring and control beyond Bluetooth range</li>
+    <li>Scale up motor and structural design for real rooftop dimensions and loads</li>
+    <li>Add a weatherproof enclosure for outdoor durability</li>
+  </ul>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
