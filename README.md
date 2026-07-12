@@ -50,3 +50,7 @@ Just open `index.html` in a browser. Everything runs client-side, no server or b
 
 - Colors live as CSS variables at the top of `style.css` (`:root { --bg, --primary, --accent, ... }`) — change them there and they apply everywhere.
 - Skill bar percentages are inline `style="--fill:XX%"` on each `.skill-bar-fill` div in `index.html` — adjust freely as your skills grow.
+
+## Live Demo
+
+https://jananisuresh-s.github.io/professional_portfolio/
