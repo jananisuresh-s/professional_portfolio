@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Performance Dashboard — Janani S</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grain"></div>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-mark">J.</a>
+  <a href="index.html#projects" class="nav-cta">← All projects</a>
+</nav>
+
+<header class="detail-hero">
+  <a href="index.html#projects" class="detail-back">← Back to projects</a>
+  <h1>Sales Performance Dashboard</h1>
+  <p class="role">Data Analysis &nbsp;/&nbsp; Power BI</p>
+  <p class="hero-desc">An end-to-end sales analytics project — cleaning nearly 3,100 raw sales records, analyzing trends with SQL, and building an interactive Power BI dashboard covering revenue, profit, top products, regional performance, and monthly trends.</p>
+  <div class="detail-links">
+    <a href="https://github.com/jananisuresh-s/Sales_Performance_Dashboard" class="btn btn-ghost" target="_blank" rel="noopener">View on GitHub</a>
+  </div>
+</header>
+
+<main class="detail-body">
+
+  <h2>Why I built this</h2>
+  <p>I wanted a project that went through the full data analyst workflow end to end — starting from messy, real-world-style raw data, not a pre-cleaned dataset. Raw sales exports are rarely usable as-is: missing values, inconsistent casing, stray currency symbols, and incomplete date fields all show up here, so the cleaning stage had to earn the analysis that came after it.</p>
+
+  <h2>What it does</h2>
+  <p>The project moves through three stages: cleaning, SQL analysis, and dashboarding.</p>
+  <ul>
+    <li><strong>Data cleaning</strong> — standardized column headers, trimmed and title-cased text fields, parsed order dates into year/quarter/month/day features, stripped currency formatting from numeric fields, and dropped rows missing quantity or revenue</li>
+    <li><strong>Recalculated metrics</strong> — rebuilt total cost, revenue, profit, and profit margin from quantity and unit price/cost directly, rather than trusting the raw figures</li>
+    <li><strong>SQL analysis</strong> — loaded the cleaned data into SQLite and queried executive KPIs, salesperson leaderboard, regional performance, category profitability, and top 5 profitable products</li>
+    <li><strong>Power BI dashboard</strong> — an interactive dashboard surfacing revenue, profit, top products, regional performance, and monthly trends</li>
+  </ul>
+
+  <h2>Technologies used</h2>
+  <table class="component-table">
+    <tr><th>Component</th><th>Purpose</th></tr>
+    <tr><td>Python (Pandas, NumPy)</td><td>Cleaning and preprocessing ~3,090 raw sales records</td></tr>
+    <tr><td>SQL (SQLite)</td><td>Trend analysis — KPIs, leaderboard, regional and category breakdowns</td></tr>
+    <tr><td>Power BI</td><td>Interactive dashboard: revenue, profit, top products, regional and monthly trends</td></tr>
+    <tr><td>Excel</td><td>Initial inspection of the raw sales export</td></tr>
+  </table>
+
+  <h2>Key findings</h2>
+  <p>Across 2,997 cleaned records, the dataset totals roughly ₹78.1L in revenue and ₹33.0L in profit. Revenue is fairly evenly spread across regions, with South leading and North lowest. Home &amp; Kitchen edges out Furniture and Electronics as the most profitable category, with Stationery and Apparel close behind — no single category dominates, which made the regional and category breakdowns more useful than a single top-line number.</p>
+
+  <h2>My role</h2>
+  <p>I worked this project independently end to end: writing the cleaning script, designing the SQL queries, and building the Power BI dashboard myself.</p>
+
+  <h2>Future scope</h2>
+  <ul>
+    <li>Add year-over-year comparison once more than one year of data is available</li>
+    <li>Layer in a simple forecast (e.g. moving average) for next-quarter revenue</li>
+    <li>Automate the cleaning-to-dashboard pipeline so refreshing the data doesn't require rerunning scripts manually</li>
+    <li>Add drill-through pages in Power BI for salesperson-level performance</li>
+  </ul>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
