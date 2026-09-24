@@ -1,56 +1,96 @@
-# Janani S — Portfolio
+# Janani Suresh — Portfolio
 
-A dark-themed, single-page portfolio built with plain HTML, CSS, and JavaScript (no frameworks, no build step). Includes dedicated detail pages for each project.
+A personal portfolio website showcasing my projects, technical skills, education, and professional profile.
 
-## Files
+## Live Portfolio
 
+**[Visit Portfolio](https://jananisuresh-s.github.io/professional_portfolio/)**
+
+## About
+
+This portfolio was created to present my technical background and projects in a clean, responsive, and professional interface.
+
+It includes dedicated project pages with details about the technologies used, project objectives, implementation, and my contribution.
+
+## Features
+
+* Responsive dark-themed design
+* About Me section
+* Technical skills showcase
+* Project portfolio
+* Dedicated project detail pages
+* Education section
+* Resume access
+* Contact information
+* Smooth scrolling and section animations
+* GitHub, LinkedIn, and email integration
+
+## Projects
+
+### Brain Tumor Detection
+
+A machine learning/deep learning project focused on detecting brain tumors from MRI scan images.
+
+**Technologies:** Python, Machine Learning, Deep Learning
+
+### Smart Rooftop System
+
+An ESP32-based automated rooftop system designed to respond to environmental conditions such as temperature and rainfall.
+
+**Technologies:** ESP32, Arduino, DHT11, Rain Sensor, DC Motor, Bluetooth
+
+### Line-Following Robot
+
+An embedded systems project involving an autonomous robot designed to follow a predefined path using sensors.
+
+**Technologies:** Arduino, Sensors, Embedded Systems
+
+## Technologies Used
+
+* HTML5
+* CSS3
+* JavaScript
+* GitHub Pages
+
+## Project Structure
+
+```text
+portfolio/
+│
+├── index.html
+├── project-brain-tumor.html
+├── project-smart-rooftop.html
+├── project-line-following-robot.html
+├── style.css
+├── script.js
+├── Janani_S_Resume.pdf
+└── README.md
 ```
-index.html                        Main page (About, Skills, Projects, Education, Contact)
-project-brain-tumor.html          Brain Tumor Detection — project detail page
-project-smart-rooftop.html        Smart Rooftop System — project detail page
-project-line-following-robot.html Line-Following Robot — project detail page
-style.css                         All styling (colors, layout, animations)
-script.js                         Scroll animations (skill bars + section reveals)
-Janani_S_Resume.pdf               Resume, linked from the nav bar and footer
-README.md                         This file
-```
 
-All files must stay in the same folder — the pages link to each other and to the stylesheet/script using relative paths (e.g. `href="style.css"`, `href="project-brain-tumor.html"`). If you move one file without the others, those links break.
+## Getting Started
 
-## Viewing it locally
+To run the portfolio locally:
 
-Just open `index.html` in a browser. Everything runs client-side, no server or build step needed.
+1. Clone the repository.
+2. Open the project folder.
+3. Open `index.html` in a web browser.
 
-## Publishing to GitHub Pages
+No frameworks, build tools, or server setup are required.
 
-1. **If you're replacing your existing portfolio repo** (`jananisuresh-s.github.io/portfolio-website` or similar):
-   - Delete the old files from the repo (or clear the folder locally before copying these in), so nothing conflicts.
-   - Copy all 7 files from this zip into the repo folder.
-   - Commit and push:
-     ```
-     git add .
-     git commit -m "Redesign portfolio"
-     git push
-     ```
-   - GitHub Pages will rebuild automatically — give it a minute or two, then check your existing Pages URL.
+## Deployment
 
-2. **If you're starting a fresh repo:**
-   - Create a new repo on GitHub. If you want it at `https://jananisuresh-s.github.io`, the repo must be named exactly `jananisuresh-s.github.io`. Otherwise, name it anything and it'll be served at `https://jananisuresh-s.github.io/<repo-name>`.
-   - Upload all 7 files (GitHub's web UI "Add file → Upload files" works fine for this, or `git add . && git commit -m "Initial portfolio" && git push`).
-   - Go to the repo's **Settings → Pages**, set the source branch to `main` (or `master`) and folder to `/root`, then save.
-   - Your site will be live at the URL GitHub shows on that same settings page within a few minutes.
+The portfolio is hosted using **GitHub Pages**.
 
-## Before you publish — double check
+## Author
 
-- Resume PDF is current (swap `Janani_S_Resume.pdf` for an updated version if needed, keeping the same filename, or update the filename in `index.html`'s two resume links if you rename it).
-- Smart Rooftop System project page has a placeholder line under "My role" — fill in your actual contribution before this goes live.
-- All contact links (email, GitHub, LinkedIn) are already wired to your real accounts.
+**Janani Suresh**
 
-## Customizing
+Electronics and Communication Engineering Graduate
 
-- Colors live as CSS variables at the top of `style.css` (`:root { --bg, --primary, --accent, ... }`) — change them there and they apply everywhere.
-- Skill bar percentages are inline `style="--fill:XX%"` on each `.skill-bar-fill` div in `index.html` — adjust freely as your skills grow.
+* GitHub: [jananisuresh-s](https://github.com/jananisuresh-s)
+* LinkedIn: [Janani Suresh](https://www.linkedin.com/)
+* Portfolio: [jananisuresh-s.github.io/professional_portfolio](https://jananisuresh-s.github.io/professional_portfolio/)
 
-## Live Demo
+## License
 
-https://jananisuresh-s.github.io/professional_portfolio/
+This project is intended for personal portfolio and educational purposes.
